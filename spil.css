@@ -1,0 +1,20 @@
+/* Plankton items */
+.plankton {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #355f3f 0%, #8ebf77 60%);
+    box-shadow: 0 2px 10px rgba(28, 38, 5, 0.319);
+    pointer-events: none; /* so clicks pass through */
+    z-index: 250; /* above fish background but below dialogs */
+    transform-origin: center;
+    animation: planktonDrift 3s ease-in-out infinite alternate;
+/* Obstacles som ringe */
+.obstacle-ring {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 6px solid rgb(67, 39, 64);
+    border-radius: 50%;
+    box-shadow: 0 0 18px rgba(162, 126, 169, 0.8);
