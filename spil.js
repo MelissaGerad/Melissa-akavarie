@@ -85,3 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (key === 'ArrowRight') {
                 fishPosition.x = currentLeft + fishSpeed;                        // flyt til højre
                 controlledFish.style.transform = 'scaleX(1)';                   // vend fisken til højre
+
+            // opdater fiskens CSS position
+            controlledFish.style.left = fishPosition.x + 'px';
+            controlledFish.style.top = fishPosition.y + 'px';
