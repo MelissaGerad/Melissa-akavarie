@@ -124,3 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const margin = 30;
             const x = Math.floor(Math.random() * Math.max(0, rect.width - margin*2)) + margin;
             const y = Math.floor(Math.random() * Math.max(0, rect.height - margin*2)) + margin;
+            p.style.left = x + 'px';
+            p.style.top = y + 'px';
+            p.style.position = 'absolute';
+            gameArea.appendChild(p);
+        // start interval for at spawn plankton
+        spawnHandle = setInterval(spawnPlankton, spawnIntervalMs);
+        // stop plankton interval hvis siden lukkes
+        window.addEventListener('beforeunload', () => { if (spawnHandle) clearInterval(spawnHandle); 
+        });
+        // stop plankton spawner
+       if (spawnHandle) clearInterval(spawnHandle);
