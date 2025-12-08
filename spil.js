@@ -1,3 +1,46 @@
+
+// spil.js - small fixes and safe handlers for the fishing game
+// Provides: showFishInfo(id) and closeFishInfo(id) used by the HTML
+// and optional keyboard control if an element with id="player-fish" exists.
+
+
+
+    console.log("Game Over!")
+
+// Når HTML’en er fuldt indlæst, kør denne kode
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- FUNKTIONER TIL INFO-BOKSE ---
+    // Denne funktion viser info-boksen for en fisk
+    window.showFishInfo = function(id) {
+        // find HTML-elementet med id fx 'fish1-info'
+        const el = document.getElementById(id + '-info');
+        // hvis elementet ikke findes, stop og log en advarsel
+        if (!el) return console.warn('Info element not found for', id);
+        // fjern 'hidden' klassen så boksen bliver synlig
+        el.classList.remove('hidden');
+    };
+
+    // Denne funktion skjuler info-boksen for en fisk
+    window.closeFishInfo = function(id) {
+        // find elementet med id fx 'fish1-info'
+        const el = document.getElementById(id + '-info');
+        if (!el) return; // hvis det ikke findes, gør ingenting
+        // tilføj 'hidden' klassen så boksen bliver skjult
+        el.classList.add('hidden');
+    };
+
+    // Luk info-boksen hvis man klikker på overlay, men ikke hvis man klikker inde i boksen
+    document.querySelectorAll('.info-box').forEach(box => {
+        box.addEventListener('click', (e) => {
+            // hvis klik-mål er selve boksen (overlay), skjul den
+            if (e.target === box) box.classList.add('hidden');
+        });
+    });
+
+     // === spil.js med detaljerede forklaringer ===
+
+
     // --- PILTAST KONTROL AF FISK ---
     // find fisken som spilleren styrer
     const controlledFish = document.getElementById('player-fish');
@@ -9,3 +52,11 @@
     let gameIsOver = false;
     // håndtag til plankton-spawner interval
     let spawnHandle = null;
+    // --- INITIERING AF FISKEN ---
+    if (controlledFish) {
+        // gem startposition, hvis stil ikke allerede sat, brug 100x100
+        let fishPosition = { 
+            x: parseInt(controlledFish.style.left) || 100, 
+            y: parseInt(controlledFish.style.top) || 100 
+        };
+        const fishSpeed = 20; // hvor mange pixels fisken flytter pr tastetryk
