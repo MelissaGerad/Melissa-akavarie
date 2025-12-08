@@ -107,3 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     // opdater score
                     score++;
                   if (scoreEl) scoreEl.textContent = 'Plankton samlet: ' + score;
+    // --- PLANKTON SPAWNER ---
+    const gameArea = document.getElementById('game-area');
+    if (gameArea) {
+        const maxPlankton = 15;         // max antal plankton på banen
+        const spawnIntervalMs = 1500;   // hvor ofte plankton spawnes (ms)
+        function spawnPlankton() {
+            if (gameIsOver) return; // stop hvis spil slut
+            const existing = gameArea.querySelectorAll('.plankton').length;
+            if (existing >= maxPlankton) return; // hvis for mange plankton, spawn ikke
