@@ -75,3 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // hent nuværende position
             const currentLeft = parseInt(controlledFish.style.left) || fishPosition.x;
             const currentTop = parseInt(controlledFish.style.top) || fishPosition.y;
+            // opdater position baseret på tast
+            if (key === 'ArrowUp') fishPosition.y = currentTop - fishSpeed;      // flyt op
+            if (key === 'ArrowDown') fishPosition.y = currentTop + fishSpeed;    // flyt ned
+            if (key === 'ArrowLeft') {
+                fishPosition.x = currentLeft - fishSpeed;                         // flyt til venstre
+                controlledFish.style.transform = 'scaleX(-1)';                  // vend fisken til venstre
+            }
+            if (key === 'ArrowRight') {
+                fishPosition.x = currentLeft + fishSpeed;                        // flyt til højre
+                controlledFish.style.transform = 'scaleX(1)';                   // vend fisken til højre
