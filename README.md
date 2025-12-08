@@ -9,6 +9,6 @@ I filerne har jeg ændret:
 I filerne af jeg ændret:
 
 
-4.I spil.css  : //* MIT FISKESPIL MED PILTAST*// og ned af
-5.I spil.html : <!-- === INFOBOKSE === —> og ned af
-6.Ispil.js . :  // --- PILTAST KONTROL AF FISK — og ned af
+4. I spil.css  : //* MIT FISKESPIL MED PILTAST*// og ned af
+5. I spil.html : <!-- === INFOBOKSE === —> og ned af
+6. Ispil.js . :  // --- PILTAST KONTROL AF FISK — og ned af
