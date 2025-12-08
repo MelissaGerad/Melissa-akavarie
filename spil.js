@@ -116,3 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (gameIsOver) return; // stop hvis spil slut
             const existing = gameArea.querySelectorAll('.plankton').length;
             if (existing >= maxPlankton) return; // hvis for mange plankton, spawn ikke
+            // opret nyt plankton-element
+            const p = document.createElement('div');
+            p.className = 'plankton';
+            // placering tilfældigt indenfor gameArea
+            const rect = gameArea.getBoundingClientRect();
+            const margin = 30;
+            const x = Math.floor(Math.random() * Math.max(0, rect.width - margin*2)) + margin;
+            const y = Math.floor(Math.random() * Math.max(0, rect.height - margin*2)) + margin;
