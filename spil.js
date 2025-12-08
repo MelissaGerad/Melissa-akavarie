@@ -69,3 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', function(event){
             const key = event.key; // hvilken tast blev trykket
 
+            // forhindre standard scrolling når man trykker piletaster
+            if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(key)) event.preventDefault();
+
+            // hent nuværende position
+            const currentLeft = parseInt(controlledFish.style.left) || fishPosition.x;
+            const currentTop = parseInt(controlledFish.style.top) || fishPosition.y;
