@@ -6,6 +6,8 @@ Image filen / har jeg tilføjet mine nye fisk
 index.html: har jeg oprettet play button knappen 
 I info.html: har jeg ændret teksten til fiskene.
 
+I filerne af jeg ændret:
+
 
 I spil.css  : //* MIT FISKESPIL MED PILTAST*// og ned af
 I spil.html : <!-- === INFOBOKSE === —> og ned af
