@@ -65,3 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         controlledFish.style.left = fishPosition.x + 'px';
         controlledFish.style.top = fishPosition.y + 'px';
 
+        // --- STYR FISKEN MED PILETASTER ---
+        document.addEventListener('keydown', function(event){
+            const key = event.key; // hvilken tast blev trykket
+
