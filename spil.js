@@ -60,3 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             y: parseInt(controlledFish.style.top) || 100 
         };
         const fishSpeed = 20; // hvor mange pixels fisken flytter pr tastetryk
+        // sikre absolut positionering
+        controlledFish.style.position = controlledFish.style.position || 'absolute';
+        controlledFish.style.left = fishPosition.x + 'px';
+        controlledFish.style.top = fishPosition.y + 'px';
+
