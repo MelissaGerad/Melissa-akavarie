@@ -135,3 +135,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         // stop plankton spawner
        if (spawnHandle) clearInterval(spawnHandle);
+      // vis score overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'gameover-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.left = 0;
+    overlay.style.top = 0;
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.7)';
+    overlay.style.zIndex = 5000;
+    overlay.innerHTML = `
+        <div style="background:#fff;padding:30px;border-radius:12px;text-align:center;">
+            <h1>GAME OVER</h1>
+            <p>Plankton samlet: ${score}</p>
+            <button id="restart-btn">Spil igen</button>
+        </div>`;
+
+    document.body.appendChild(overlay);
+    // close if(gameArea) and DOMContentLoaded
