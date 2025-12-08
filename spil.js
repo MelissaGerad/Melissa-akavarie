@@ -89,3 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // opdater fiskens CSS position
             controlledFish.style.left = fishPosition.x + 'px';
             controlledFish.style.top = fishPosition.y + 'px';
+            // --- SAMLE PLANKTON ---
+            // find alle plankton i spilområdet
+            document.querySelectorAll('.plankton').forEach(p => {
+                // hent planktonets position
+                const rectP = p.getBoundingClientRect();
+                // hent fiskens position
+                const rectF = controlledFish.getBoundingClientRect();
