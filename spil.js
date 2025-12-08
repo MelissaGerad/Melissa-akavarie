@@ -96,3 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rectP = p.getBoundingClientRect();
                 // hent fiskens position
                 const rectF = controlledFish.getBoundingClientRect();
+                // beregn afstand mellem midtpunkter af fisk og plankton
+                const dx = Math.abs((rectF.left + rectF.width/2) - (rectP.left + rectP.width/2));
+                const dy = Math.abs((rectF.top + rectF.height/2) - (rectP.top + rectP.height/2));
+
+                // hvis fisk er tæt nok på plankton (dx < 40 og dy < 40)
+                if (dx < 40 && dy < 40) {
+                    // fjern planktonet (spist)
+                    p.remove();
+                    // opdater score
+                    score++;
+                  if (scoreEl) scoreEl.textContent = 'Plankton samlet: ' + score;
